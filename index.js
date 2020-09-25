@@ -1,9 +1,32 @@
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
-var tempVariable = getRandomInt(1 , 6);
-var lf = document.getElementsByClassName("img1");
-console.log(lf);console.log("hello");
+// keep your js file in body so that it works at the last 
+
+var randomNumber1 = Math.floor(Math.random() * 6) + 1; //1-6
+
+var randomDiceImage = "dice" + randomNumber1 + ".png"; //dice1.png - dice6.png
+
+var randomImageSource = "images/" + randomDiceImage; //images/dice1.png - images/dice6.png
+
+// var lf = "hello";
+lf = document.getElementById("imag1");
+
+lf.src = randomImageSource;
+
+
+var randomNumber2 = Math.floor(Math.random() * 6) + 1;
+
+var randomImageSource2 = "images/dice" + randomNumber2 + ".png";
+
+document.getElementById("imagee2").src = randomImageSource2;
+
+
+//If player 1 wins
+if (randomNumber1 > randomNumber2) {
+  document.querySelector("h1").innerHTML = "🚩 Play 1 Wins!";
+}
+else if (randomNumber2 > randomNumber1) {
+  document.querySelector("h1").innerHTML = "Player 2 Wins! 🚩";
+}
+else {
+  document.querySelector("h1").innerHTML = "Draw!";
+}
